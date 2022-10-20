@@ -1,0 +1,45 @@
+#------Link :https://www.javatpoint.com/linux-cd
+----------------Change directory using an absolute path
+                To change the directory by using an absolute path, we have to mention the whole path starting from the root
+                From the above output, we are changing our directory to 'certs' from 'cups.' So,
+                we have provided the whole path "/run/cups/certs" starting from the root (/). This is called an absolute path.
+                command ::
+                 /* /illin4606!choudhar:~ [263]$ cd IpBlockingissue
+                 illin4606!choudhar:~/IpBlockingissue [264]$ pwd
+                 /attuser/ats/users/choudhar/IpBlockingissue
+                 illin4606!choudhar:~/IpBlockingissue [265]$ ls
+                 com  Directory  final_ip_code  META-INF  Schedule  Search  TCDIL.jar  XSSBlockingFilter.class
+                 illin4606!choudhar:~/IpBlockingissue [266]$ cd /attuser/ats/users/choudhar/IpBlockingissue */
+
+
+
+-----------------Change directory using a relative path
+                 We can change our directory by using a relative path; a relative path is a location that is relative to
+                 the current directory.
+
+                  command : :
+                  illin4606!choudhar:~/IpBlockingissue/com [286]$ cd ..
+                  illin4606!choudhar:~/IpBlockingissue [287]$ cd /com/sbcdo/TCDIL/servlet/
+                  /com/sbcdo/TCDIL/servlet/: No such file or directory.
+                  illin4606!choudhar:~/IpBlockingissue [288]$ cd com/sbcdo/TCDIL/servlet/
+                  illin4606!choudhar:~/IpBlockingissue/com/sbcdo/TCDIL/servlet [289]$
+                  illin4606!choudhar:~/IpBlockingissue/com/sbcdo/TCDIL/servlet [289]$
+
+
+---------------- Change to the home directory :
+                   command : cd ~ / cd
+---------------- Change to the previous directory
+                ` To change to the previous directory from the current working directory, execute the command as follows
+                  command : cd -
+
+---------------- : change to the root directory
+                   To navigate directory to entire system's root directory from current working directory, execute the command as follows:
+                   command : cd /
+
+---------------- Change to another user's home directory
+                   We can change the directory from the current working directory to a user's home directory by executing the command as follows:
+                 command : ~username like cd ~mb_ccats
+
+---------------- Change to Directory having Spaces
+                 To change the directory that has spaces in its name, surround the path with quotes (' ') or use the backslash (\) character with it. Execute the command as follows:
+                 command  : cd 'this is multiple word dir'

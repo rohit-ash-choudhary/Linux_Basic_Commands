@@ -1,0 +1,256 @@
+file <filename> : file command is used to determine the file type. It does not care about the extension used for file. It simply uses file command and tell us the file type.
+                  It has several options.
+                  command :
+                          illin4606!choudhar:~/IpBlockingissue [234]$ file XSSBlockingFilter.class
+                          XSSBlockingFilter.class: compiled Java class data, version 52.0 (Java 1.8)
+                          illin4606!choudhar:~/IpBlockingissue [235]$ file TCDIL.jar
+                          TCDIL.jar: Zip archive data, at least v1.0 to extract
+                          illin4606!choudhar:~/IpBlockingissue [236]$
+
+
+touch <filename> : ouch command is a way to create empty files (there are some other mehtods also).
+                   You can update the modification and access time of each file with the help of touch command.
+
+
+touch <filename1>  <filename2>  : create multiple files
+
+
+touch -a <filename1>  : touch command with option 'a' is used to change the access time of a file. By default, it will take the current time of your system.
+                      commands :
+                               illin4606!choudhar:~/IpBlockingissue/Schedule [239]$ touch -a abc.text
+                               illin4606!choudhar:~/IpBlockingissue/Schedule [240]$ ls
+                               abc.text
+                               illin4606!choudhar:~/IpBlockingissue/Schedule [241]$ stat abc.text
+                                 File: `abc.text'
+                                 Size: 0               Blocks: 0          IO Block: 4096   regular empty file
+                               Device: fd13h/64787d    Inode: 11064836    Links: 1
+                               Access: (0644/-rw-r--r--)  Uid: (35352/choudhar)   Gid: (35352/choudhar)
+                               Access: 2022-10-18 01:19:55.884681520 +0300
+                               Modify: 2022-10-18 01:19:55.884681520 +0300
+                               Change: 2022-10-18 01:19:55.884681520 +0300
+                               illin4606!choudhar:~/IpBlockingissue/Schedule [242]$
+
+
+touch -m  <filename1> : The touch '-m' option will help you to change only the modification time of a file.
+                        command :
+                                illin4606!choudhar:~/IpBlockingissue/Schedule [247]$ touch -m b.txt
+                                illin4606!choudhar:~/IpBlockingissue/Schedule [248]$ stat b.txt
+                                  File: `b.txt'
+                                  Size: 0               Blocks: 0          IO Block: 4096   regular empty file
+                                Device: fd13h/64787d    Inode: 11064838    Links: 1
+                                Access: (0644/-rw-r--r--)  Uid: (35352/choudhar)   Gid: (35352/choudhar)
+                                Access: 2022-10-18 01:23:06.042865373 +0300
+                                Modify: 2022-10-18 01:23:06.042865373 +0300
+                                Change: 2022-10-18 01:23:06.042865373 +0300
+                                illin4606!choudhar:~/IpBlockingissue/Schedule [249]$
+
+touch -r  :  This command will update time with reference to the other mentioned command. There are two ways to use this command. Both works the same.
+
+             In below example, we want to change time-stamp of 'Demo.txt' with reference to 'demo.txt'. Firstyou can write it as,
+
+             touch -r demo.txt Demo.txt
+             or
+
+             touch Demo.txt -r demo.txt
+
+             command :
+                       illin4606!choudhar:~/IpBlockingissue/Schedule [254]$ stat c.txt
+                        File: `c.txt'
+                        Size: 0               Blocks: 0          IO Block: 4096   regular empty file
+                      Device: fd13h/64787d    Inode: 11064839    Links: 1
+                      Access: (0644/-rw-r--r--)  Uid: (35352/choudhar)   Gid: (35352/choudhar)
+                      Access: 2022-10-18 01:25:47.842864861 +0300
+                      Modify: 2022-10-18 01:25:47.842864861 +0300
+                      Change: 2022-10-18 01:25:47.842864861 +0300
+                      illin4606!choudhar:~/IpBlockingissue/Schedule [255]$ stat d.txt
+                        File: `d.txt'
+                        Size: 0               Blocks: 0          IO Block: 4096   regular empty file
+                      Device: fd13h/64787d    Inode: 11064840    Links: 1
+                      Access: (0644/-rw-r--r--)  Uid: (35352/choudhar)   Gid: (35352/choudhar)
+                      Access: 2022-10-18 01:25:58.023927520 +0300
+                      Modify: 2022-10-18 01:25:58.023927520 +0300
+                      Change: 2022-10-18 01:25:58.023927520 +0300
+
+                      Check d.txt changes with respect time of c.txt
+                      illin4606!choudhar:~/IpBlockingissue/Schedule [256]$ touch -r c.txt d.txt
+                      illin4606!choudhar:~/IpBlockingissue/Schedule [257]$ stat c.txt
+                        File: `c.txt'
+                        Size: 0               Blocks: 0          IO Block: 4096   regular empty file
+                      Device: fd13h/64787d    Inode: 11064839    Links: 1
+                      Access: (0644/-rw-r--r--)  Uid: (35352/choudhar)   Gid: (35352/choudhar)
+                      Access: 2022-10-18 01:25:47.842864861 +0300
+                      Modify: 2022-10-18 01:25:47.842864861 +0300
+                      Change: 2022-10-18 01:25:47.842864861 +0300
+                      illin4606!choudhar:~/IpBlockingissue/Schedule [258]$ stat d.txt
+                        File: `d.txt'
+                        Size: 0               Blocks: 0          IO Block: 4096   regular empty file
+                      Device: fd13h/64787d    Inode: 11064840    Links: 1
+                      Access: (0644/-rw-r--r--)  Uid: (35352/choudhar)   Gid: (35352/choudhar)
+                      Access: 2022-10-18 01:25:47.842864861 +0300
+                      Modify: 2022-10-18 01:25:47.842864861 +0300
+                      Change: 2022-10-18 01:26:26.972105530 +0300
+                      illin4606!choudhar:~/IpBlockingissue/Schedule [259]$
+
+
+touch -c : Using 'c' option with touch command will not create an empty file, if that file doesn't exist.
+            command ;
+
+
+rm <filename > : to remove file
+                commands :
+                        illin4606!choudhar:~/IpBlockingissue/Schedule [265]$ ls
+                        abc.text  a.text  b.txt  c.txt  d.txt
+                        illin4606!choudhar:~/IpBlockingissue/Schedule [266]$ rm  abc.text a.text  b.txt  c.txt  d.txt
+                        rm: remove regular empty file `abc.text'? y
+                        rm: remove regular empty file `a.text'? y
+                        rm: remove regular empty file `b.txt'? y
+                        rm: remove regular empty file `c.txt'? y
+                        rm: remove regular empty file `d.txt'? y
+                        illin4606!choudhar:~/IpBlockingissue/Schedule [267]$ ls
+                        illin4606!choudhar:~/IpBlockingissue/Schedule [268]$
+
+rm *<extension>  : This command can be used to remove all the files ending with same extensions like .pdf, .txt, .odt, .png, etc.
+                    commands :
+                                illin4606!choudhar:~/IpBlockingissue/Schedule [274]$ touch a.txt  b.txt c.txt d.txt
+                                illin4606!choudhar:~/IpBlockingissue/Schedule [275]$ rm *.txt
+                                rm: remove regular empty file `a.txt'? ls
+                                rm: remove regular empty file `b.txt'? y
+                                rm: remove regular empty file `c.txt'? y
+                                rm: remove regular empty file `d.txt'? y
+                                illin4606!choudhar:~/IpBlockingissue/Schedule [276]$ ls
+                                a.txt
+                                illin4606!choudhar:~/IpBlockingissue/Schedule [277]$
+
+rm -r <dirname>   : With rm '-r' option, you can delete a directory having sub directories inside it. So you don't need
+                    to delete sub-directories manually.
+                    commands :
+                                illin4606!choudhar:~/IpBlockingissue/Schedule [277]$ mkdir c
+                                illin4606!choudhar:~/IpBlockingissue/Schedule [278]$ cd c
+                                illin4606!choudhar:~/IpBlockingissue/Schedule/c [279]$ mkdir d
+                                illin4606!choudhar:~/IpBlockingissue/Schedule/c [280]$ ls
+                                d
+                                illin4606!choudhar:~/IpBlockingissue/Schedule/c [281]$ cd ..
+                                illin4606!choudhar:~/IpBlockingissue/Schedule [282]$ rm -r c
+                                rm: descend into directory `c'? y
+                                rm: remove directory `c/d'? y
+                                rm: remove directory `c'? y
+                                illin4606!choudhar:~/IpBlockingissue/Schedule [283]$ ls
+                                a.txt
+                                illin4606!choudhar:~/IpBlockingissue/Schedule [284]$
+
+rm -i : The option 'i' stands for 'interactivity'. Before deleting a file it will ask you whether you want to delete it or not. To delete a file use command:
+        command :
+                    illin4606!choudhar:~/IpBlockingissue/Schedule [284]$ ls
+                    a.txt
+                    illin4606!choudhar:~/IpBlockingissue/Schedule [285]$ rm -i a.txt
+                    rm: remove regular empty file `a.txt'? y
+                    illin4606!choudhar:~/IpBlockingissue/Schedule [286]$
+
+rm -rf : Linux rm -rf command deletes directory forcefully. It means a file or directory will be deleted anyhow even if it has read-only permission.
+
+         To delete a file forcefully, use command:
+
+         rm -f <file name>
+
+cp :    cp' means copy. 'cp' command is used to copy a file or a directory.
+
+         To copy a file into the same directory syntax will be,
+
+         cp <existing file name> <new file name>
+         command:
+                   illin4606!choudhar:~/IpBlockingissue/Schedule [291]$ cp a.txt b.txt
+                   illin4606!choudhar:~/IpBlockingissue/Schedule [292]$ ls -ltr
+                   total 8
+                   -rw-r--r-- 1 choudhar choudhar 125 Oct 18 01:41 a.txt
+                   -rw-r--r-- 1 choudhar choudhar 125 Oct 18 01:42 b.txt
+                   illin4606!choudhar:~/IpBlockingissue/Schedule [293]$
+
+
+cp in different directory :
+                        cp <filename>  <directory path>
+                        illin4606!choudhar:~ [297]$ cp  XSSBlockingFilter.class IpBlockingissue/Schedule/
+                        illin4606!choudhar:~ [298]$ cd IpBlockingissue/Schedule
+                        illin4606!choudhar:~/IpBlockingissue/Schedule [299]$ ls
+                        a.txt  b.txt  XSSBlockingFilter.class
+                        illin4606!choudhar:~/IpBlockingissue/Schedule [300]$
+
+Copy file from directory :  Here we copy  RIM_UPDATE_TEMP_ITEM_RIM.sql from  /home/rc7792/ to m78412@mlti014:/opt/app/t1ssp2c1/wp_stusr/m78412/rohit
+                            /home/rc7792/RIM_UPDATE_TEMP_ITEM_RIM.sql
+                            COMMAND :
+                                        m78412@mlti014:/opt/app/t1ssp2c1/wp_stusr/m78412/rohit> cp /home/rc7792/RIM_UPDATE_TEMP_ITEM_RIM.sql .
+                                        m78412@mlti014:/opt/app/t1ssp2c1/wp_stusr/m78412/rohit>
+                                        m78412@mlti014:/opt/app/t1ssp2c1/wp_stusr/m78412/rohit> ls
+                                        Customer_Test_RIM_Test.sql       RIM_UPDATE_CLEC_MECH_BILLING_CLEC_RETAINED_BILLING.sql  RIM_UPDATE_PREP_STAT.sql
+                                        MEMO_RIM_TEST.sql                RIM_UPDATE_EMPLOYEE_HISTORY.sql                         RIM_UPDATE_TEMP_ITEM_RIM.sql
+                                        RIM_INSERT_BATCH_JOB_PARAMS.sql  RIM_UPDATE_EMPLOYEE.sql                                 RIM_UPDATE_TEMP_MEMO_RIM_reular.sql
+                                        RIM_INSERT_EMPLOYEE_OTP.sql      RIM_UPDATE_EMPLOYEE_WAGE_HISTORY.sql                    RIM_UPDATE_TEMP_MEMO_RIM.sql
+                                        RIM_INSERT_UAMS_USER.sql         RIM_UPDATE_PREP_STAT_FIRST_RUN.sql                      RIM_UPDATE_TEMP_MEMO_RIMS.sql
+                                        RIM_UPDATE_BEW_3PP_BILLING.sql   RIM_UPDATE_PREP_STAT_REGULAR_RUN.sql                    RIM_UPDATE_TEMP_QT_EMP_RIM.sql
+                                        m78412@mlti014:/opt/app/t1ssp2c1/wp_stusr/m78412/rohit> ls -lrt
+                                        total 66
+                                        -rwxr-xr-x 1 m78412 focsoc 4785 Sep 27 13:36 Customer_Test_RIM_Test.sql
+                                        -rwxr-xr-x 1 m78412 focsoc 2831 Oct  6 12:22 MEMO_RIM_TEST.sql
+                                        -rwxr-xr-x 1 m78412 focsoc 1572 Oct  7 08:00 RIM_UPDATE_BEW_3PP_BILLING.sql
+                                        -rwxr-xr-x 1 m78412 focsoc 4058 Oct  7 08:30 RIM_UPDATE_EMPLOYEE.sql
+                                        -rwxr-xr-x 1 m78412 focsoc 5263 Oct  7 10:47 RIM_UPDATE_EMPLOYEE_WAGE_HISTORY.sql
+                                        -rwxr-xr-x 1 m78412 focsoc 5250 Oct  7 11:21 RIM_UPDATE_EMPLOYEE_HISTORY.sql
+                                        -rwxr-xr-x 1 m78412 focsoc 1617 Oct 11 07:25 RIM_UPDATE_PREP_STAT_FIRST_RUN.sql
+                                        -rwxr-xr-x 1 m78412 focsoc 1558 Oct 11 07:43 RIM_UPDATE_PREP_STAT_REGULAR_RUN.sql
+                                        -rwxr-xr-x 1 m78412 focsoc 2884 Oct 12 10:32 RIM_INSERT_EMPLOYEE_OTP.sql
+                                        -rwxr-xr-x 1 m78412 focsoc 2997 Oct 12 12:08 RIM_UPDATE_TEMP_QT_EMP_RIM.sql
+                                        -rwxr-xr-x 1 m78412 focsoc 2777 Oct 13 08:15 RIM_UPDATE_TEMP_MEMO_RIM.sql
+                                        -rwxr-xr-x 1 m78412 focsoc 2777 Oct 13 08:21 RIM_UPDATE_TEMP_MEMO_RIM_reular.sql
+                                        -rwxr-xr-x 1 m78412 focsoc 2534 Oct 17 06:01 RIM_UPDATE_CLEC_MECH_BILLING_CLEC_RETAINED_BILLING.sql
+                                        -rwxr-xr-x 1 m78412 focsoc 3815 Oct 17 07:14 RIM_INSERT_BATCH_JOB_PARAMS.sql
+                                        -rwxr-xr-x 1 m78412 focsoc 2642 Oct 17 07:18 RIM_INSERT_UAMS_USER.sql
+                                        -rwxr-xr-x 1 m78412 focsoc 1695 Oct 17 07:37 RIM_UPDATE_PREP_STAT.sql
+                                        -rwxr-xr-x 1 m78412 focsoc 3441 Oct 17 07:40 RIM_UPDATE_TEMP_MEMO_RIMS.sql
+                                        -rwxr-xr-x 1 m78412 focsoc 2662 Oct 17 18:57 RIM_UPDATE_TEMP_ITEM_RIM.sql
+
+
+
+
+cp -r	:To copy a directory along with its sub dirctories.
+cp file1 file 2 directory name :	To copy multiple file or directories in a directory.
+cp -backup	:To backup the existing file before over writing it.
+cp -i	:    Asks for confirmtion.
+cp -l	: To create hard link file.
+cp -p	: Preserves attribute of a file.
+cp -u -v	: To make sure source file is newer then destination file.
+
+cp -r :Option 'r' with the copy command can be used to copy a directory including all its content from a source directory to the destination directory.
+                Syntax: cp -r <sourceDirectory> <destinationDirectory>
+
+cp *.txt <directory> : Multiple files or directories can be copied to a destination directory at once. In this case, target must be a directory. To copy multiple files you can use wildcards (cp *.extension) having same pattern.
+
+                       Syntax:
+
+                       cp *.<extension> <destinationDirectory>
+                       Example:
+
+                       cp *.txt /home/sssit/Documents
+
+
+cp --backup <filename> <destinationDirectory>  :
+                                              If the file you want to copy already exists in the destination directory, you can backup your existing file with the use of this command.
+
+                                    Syntax:
+
+                                    cp --backup <filename> <destinationDirectory>
+                                    Example:
+
+                                    cp --backup file2.txt /home/sssit/Downloads
+
+
+
+
+Linux cp -i
+                The cp '-i' option allows you to confirm once before overwriting your file.
+
+                Syntax: cp -i <filename> <destinationDirectory>
+                            illin4606!choudhar:~ [346]$ cp -i a.txt IpBlockingissue/Search/
+                            cp: overwrite `IpBlockingissue/Search/a.txt'? y
+                            illin4606!choudhar:~ [347]$
+                            illin4606!choudhar:~ [347]$
+
+

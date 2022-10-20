@@ -1,0 +1,23 @@
+ls     :  will show the full list or content of your directory.
+
+ls -a  : in Linux, hidden files start with . (dot) symbol and they are not visible in the regular directory.
+      The (ls -a) command will enlist the whole list of the current directory including the hidden files.
+
+ls -l  : It will show the list in a long list format.
+
+ls -lh : This command will show you the file sizes in human readable format. Size of the file is very difficult
+       to read when displayed in terms of byte. The (ls -lh)command will give you the data in terms of Mb, Gb, Tb, etc.
+
+ls -d */ : It is used to display only subdirectories.
+
+ls -g or ls -lG : With this you can exclude column of group information and owner.
+
+ls -R : It will display the content of the sub-directories also.
+
+ls -lX : It will group the files with same extensions together in the list.
+
+ls -lt : It will sort the list by displaying recently modified filed at top.
+
+ls -ltr : It will sort the list by displaying recently modified filed at bottom.
+
+ls ~ : It gives the contents of home directory.

@@ -1,0 +1,203 @@
+Link : https://www.javatpoint.com/linux-gzip
+
+gzip      : Gzip (GNU zip) is a compressing tool, which is used to truncate the file size. By default original file will be replaced by the compressed file ending with extension (.gz).
+
+          To decompress a file you can use gunzip command and your original file will be back.
+
+          commands :
+                      illin4606!choudhar:~/test [255]$ gzip  a.txt
+                      illin4606!choudhar:~/test [256]$ ls
+                      a.txt.gz  b.txt  c.txt
+                      illin4606!choudhar:~/test [257]$ gunzip a.txt.gz
+                      illin4606!choudhar:~/test [258]$ ls
+                      a.txt  b.txt  c.txt
+                      illin4606!choudhar:~/test [259]$ gunzip a.txt b.txt c.txt
+                      gzip -l
+'gzip -l' :command tells about the compression ratio or how much the original file has compressed.
+
+                How To Compress A Directory
+                The gzip command will not be able to compress a directory because it can only compress a single file. To compress a directory you have to use 'tar' command.
+
+                Hyphen (-) is not mandatory in 'tar' command.
+
+                'c' is to create,
+
+                'v' is for verbose, to display output,
+
+                'f' to mention destination of your output file,
+
+                'z' for specifying compress with gzip.
+
+                Syntax: tar cvfz directoryname.tar.gz <directort>
+
+                example :
+                            illin4606!choudhar:~ [269]$ tar cvfz test.tar.gz test
+                            test/
+                            test/c.txt.gz
+                            test/b.txt.gz
+                            test/a.txt.gz
+                            illin4606!choudhar:~ [270]$ ls
+                            ADS       CM    data                       GlobalFilter.class  module       opsyserr  product  REPORTS   test         tmp   XSSBlockingFilter.class
+                            ADS_WORK  comp  defects                    IpBlockingissue     opBackupDir  PG        proj     rohitash  testFile     TY
+                            a.txt     copy  Directory Schedule Search  log                 opLogDir     PRODMN    QS       temp      test.tar.gz  work
+                            illin4606!choudhar:~ [271]$
+
+
+
+
+
+
+
+
+
+Cat :
+        When cat command is used inside pipes, it does nothing except moving stdin to stout.
+        Syntax:  cat <fileName> | cat or tac |  cat or tac |. . .
+        Example:
+                illin4606!choudhar:~/test [231]$ cat a.txt | tac | cat | tac | tac | tac | tac
+                Sunday = associated with the Sun
+                Saturday = associated with Saturn
+                Friday = from Germanic goddess Frigga associated with Venus
+                Thursday = from Germanic god of thunder Thor
+                Wednesday = from Germanic god Odin
+                Tuesday = from the god Tiw, associated with Mars
+                nday = associated with the Moon
+
+grep :   he 'grep' command stands for "global regular expression print". grep command filters the content of a file which makes our search easy.
+            grep with pipe
+            The 'grep' command is generally used with pipe (|).
+            Syntax: command | grep <searchWord>
+            Commands :
+                illin4606!choudhar:~/test [233]$ cat a.txt | grep Sun
+                Sunday = associated with the Sun
+
+grep -i :      for -i for ingnore case
+                example :
+                illin4606!choudhar:~/test [235]$ cat a.txt | grep -i sun
+                Sunday = associated with the Sun
+
+grep -l :  Prints only the names of files with matching lines f
+
+
+grep -v    : line that not match
+
+grep -irl : to check in all sub directory files
+            -i= Ignore case
+            -r= need to check but may recursively
+            -l=Lists only the names of files with matching lines (once), separated by newline characters.
+            illin4606!choudhar:~/test [236]$ grep -irl 'a'
+            a.txt
+            b.txt
+
+
+
+comm     : The 'comm' command compares two files or streams. By default, 'comm' will always display
+           three columns. First column indicates non-matching items of first file, second column indicates non-matching items of second file, and third column indicates matching items of both the files. Both the files has to be in sorted order for 'comm' command to be executed.
+           Syntax:comm <file1> <file2>
+           command :
+                   illin4606!choudhar:~/test [238]$ comm a.txt b.txt
+
+                           ksnfdkdsnfds
+                   comm: file 2 is not in sorted order
+                           fafafaflaff
+                           a;f
+                           asfafapfjafjapff
+
+                   nday = associated with the Moon
+                   Tuesday = from the god Tiw, associated with Mars
+                   Wednesday = from Germanic god Odin
+                   comm: file 1 is not in sorted order
+                   Thursday = from Germanic god of thunder Thor
+                   Friday = from Germanic goddess Frigga associated with Venus
+                   Saturday = associated with Saturn
+                   Sunday = associated with the Sun
+
+tee       : Linux tee command is quite similar to the 'cat' command, with only one difference.
+            It puts stdin on stdout and also put them into a file. It is one of the most used commands
+            with other commands through piping. It allows us to write whatever is provided from std input to std output. Optionally, it provides writing to one or more files. The command name tee comes from T splitter used in plumbing.
+
+            Syntax:
+            tee <options> <file name>
+   Note :tee -a is used to not override
+            command :
+                    illin4606!choudhar:~/test [242]$ echo 'Satarday and Sunday have weekend off' | tee a.txt
+                    Satarday and Sunday have weekend off
+                    illin4606!choudhar:~/test [243]$ a.txt
+                    a.txt: Permission denied.
+                    illin4606!choudhar:~/test [244]$ cat a.txt
+                    Satarday and Sunday have weekend off
+                    illin4606!choudhar:~/test [245]$ echo sun mon tue wed fri sat | tee -a a.txt
+                    sun mon tue wed fri sat
+                    illin4606!choudhar:~/test [246]$ cat a.txt
+                    Satarday and Sunday have weekend off
+                    sun mon tue wed fri sat
+                    illin4606!choudhar:~/test [247]$
+
+tr          : The command 'tr' stands for 'translate'. It is used to translate, like from lowercase to uppercase and vice versa or new lines into spaces.
+
+              Syntax: command | tr <'old'> <'new'>
+              command :
+                      illin4606!choudhar:~/test [248]$ cat a.txt | tr 'a' 'A'
+                      SAtArdAy And SundAy hAve weekend off
+                      sun mon tue wed fri sAt
+                      illin4606!choudhar:~/test [249]$
+
+
+                     Remove new line :cat a.txt | tr '\n' ' '
+                     illin4606!choudhar:~/test [249]$ cat a.txt | tr '\n' ''
+                     tr: when not truncating set1, string2 must be non-empty
+                     illin4606!choudhar:~/test [250]$
+
+
+uniq          : To remove repetitive file from file
+
+               sort a.txt | uniq
+
+wc          : inux wc command helps in counting the lines, words, and characters in a file. It displays the number of lines, number of characters, and the number of words in a file. Mostly, it is used with pipes for counting operation.
+
+                 Syntax:
+                 wc [OPTION]... [FILE]...
+                  wc [OPTION]... --files0-from=F
+               Commands :
+                   illin4606!choudhar:~/test [250]$ wc a.txt
+                    2 12 61 a.txt
+                   illin4606!choudhar:~/test [251]$
+od           :
+              The 'od' term stands for octal dump. It displays content of a file in different human-readable formats like hexadecimal, octal and ASCII characters.
+
+              Syntax:
+
+              od -b <fileName>      (display files in octal format)
+              od -t x1 <fileName>       (display files in hexadecimal bytes format)
+              od -c <fileName>      (display files in ASCII (backslashed) character format)
+              command :
+                      illin4606!choudhar:~/test [251]$ od -b a.txt
+                      0000000 123 141 164 141 162 144 141 171 040 141 156 144 040 123 165 156
+                      0000020 144 141 171 040 150 141 166 145 040 167 145 145 153 145 156 144
+                      0000040 040 157 146 146 012 163 165 156 040 155 157 156 040 164 165 145
+                      0000060 040 167 145 144 040 146 162 151 040 163 141 164 012
+                      0000075
+                      illin4606!choudhar:~/test [252]$ od -t a.txt
+                      od: invalid character `.' in type string `a.txt'
+                      illin4606!choudhar:~/test [253]$ od -t x1 a.txt
+                      0000000 53 61 74 61 72 64 61 79 20 61 6e 64 20 53 75 6e
+                      0000020 64 61 79 20 68 61 76 65 20 77 65 65 6b 65 6e 64
+                      0000040 20 6f 66 66 0a 73 75 6e 20 6d 6f 6e 20 74 75 65
+                      0000060 20 77 65 64 20 66 72 69 20 73 61 74 0a
+                      0000075
+                      illin4606!choudhar:~/test [254]$ od -c a.txt
+                      0000000   S   a   t   a   r   d   a   y       a   n   d       S   u   n
+                      0000020   d   a   y       h   a   v   e       w   e   e   k   e   n   d
+                      0000040       o   f   f  \n   s   u   n       m   o   n       t   u   e
+                      0000060       w   e   d       f   r   i       s   a   t  \n
+                      0000075
+                      illin4606!choudhar:~/test [255]$
+
+
+
+Sort            : The 'sort' command sorts the file content in an alphabetical order.
+                  Syntax:  sort <fileName>
+
+
+
+

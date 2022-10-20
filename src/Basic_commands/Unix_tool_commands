@@ -1,0 +1,108 @@
+Link  : https://www.javatpoint.com/linux-find
+locate : https://www.javatpoint.com/linux-locate
+
+zcat           : Compressed files or zipped files can be viewed with the help of 'zcat' command.
+                           illin4606!choudhar:~ [319]$ cd test
+                           illin4606!choudhar:~/test [320]$ ls
+                           a.txt.gz  b.txt.gz  c.txt.gz
+                           illin4606!choudhar:~/test [321]$ zcat a.txt.gz
+                           Satarday and Sunday have weekend off
+                           sun mon tue wed fri sat
+                           illin4606!choudhar:~/test [322]$
+
+bzip2           "
+                The command bzip2 is also used to compress a file like gzip command but takes a little more time but compresses better. Its extension will be (.bz2).
+
+                Syntax: bzip2 <fileName>
+
+bunzip2         :The command bunzip2 decompress a file like gunzip command.
+
+
+bzcat           :The command bzcat will display the files compressed with bzip command.
+
+                    Syntax: bzcat <fileName>
+                    Example:
+
+bzcat acb.bz2
+Find           :
+                The find command helps us to find a particular file within a directory.
+                It is used to find the list of files for the various conditions like permission,
+                user ownership, modification, date/time, size, and more.
+                The find utility comes by default with most of the Linux distros,
+                so we don't need to install any additional package. It is one of the most essential and used commands of the Linux system.
+
+                find <location> <comparison-criteria> <search-term>
+                The following symbols are used to specify the directory:
+                (.) : For current directory name
+                (/) : For the root directory
+
+      ----- Find File by name :
+                    Syntax : find . -iname <filename>
+                    illin4606!choudhar:~ [272]$ find . -iname a.txt
+                    ./IpBlockingissue/Schedule/a.txt
+                    ls./a.txt
+      ----- Finding files by type
+                    The '-type' parameter is used to specify the file type.
+
+                    Some of the file types are as follows:
+
+                    f: regular file
+                    d: directory
+                    l: symbolic links
+                    c: character devices
+                    b: block devices
+
+                   -- File by type
+                   Syn : find . -type d -name "*.bak"
+                   he above command will list all the directories having '.bak' extension.
+                               illin4606!choudhar:~ [282]$ find . -iname '*.txt'
+                               ./IpBlockingissue/aaa.txt
+                               ./IpBlockingissue/Schedule/a.txt
+                               ./IpBlockingissue/Schedule/b.txt
+                               ./IpBlockingissue/b.txt
+                               ./temp/mvcjar/xmldetails/XmlDetailsHelper.txt
+                               ./temp/mvcjar/properties/esapi/users.txt
+                               ./temp/mvcjar/scripts/unix/build/mvcinfratools.txt
+                               ./temp/mvcjar/scripts/unix/build/mvcinfratools_java5.txt
+                               ./temp/mvcjar/scripts/unix/build/mvcinfratools_boot.txt
+                               ./temp/mvcjar/scripts/unix/build/mvcinfratools_jboss.txt
+                               ./temp/Newjar/amdocs/acrm/sales/rateCalc/DAO/RateCalDriver.txt
+                               ./temp/Newjar/amdocs/acrm/sales/rateCalc/DAO/RateCalculatorDAO.txt
+                               ./temp/Newjar/amdocs/acrm/sales/rateCalc/DAO/RateCalcDriverMain.txt
+
+      Find newer files:  '-newer' parameter helps in searching the files which are newer than the
+                          mentioned file. Consider the below command:
+                          will display all the files which are newer than ' msg.txt' from the current working directory.
+                          find . -newer msg.txt : all the files displayed are newer than the 'msg.txt' file.
+
+                          Syn :
+                                  illin4606!choudhar:~/IpBlockingissue [287]$ find . -newer  XSSBlockingFilter.class
+                                  .
+                                  ./TCDIL.jar
+                                  ./OTPAuth.class
+                                  ./aaa.txt
+                                  ./Schedule
+                                  ./Schedule/a.txt
+                                  ./Schedule/XSSBlockingFilter.class
+                                  ./Schedule/b.txt
+                                  ./Directory
+                                  ./com/sbcdo/TCDIL/servlet
+                                  ./com/sbcdo/TCDIL/servlet/XSSBlockingFilter.class
+                                  ./log
+                                  ./b.txt
+
+      ----------- The '-delete' option is used to delete a specific file. We need to be very careful while using this command because there is no undo option if it is once executed. Consider the below command:
+
+                    find . -name Demo.txt -delete
+
+
+      Find A Directory : The ' type -d' option is used to find a directory. Consider the below command:
+                          find . type -depth -name Newdirectory
+
+                          illin4606!choudhar:~ [291]$ find . type -depth -name Search
+                          ./copy/Search
+                          find: `type': No such file or directory
+                          illin4606!choudhar:~ [292]$
+
+
+

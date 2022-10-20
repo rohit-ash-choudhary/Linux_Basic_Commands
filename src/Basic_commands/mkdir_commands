@@ -1,0 +1,45 @@
+mkdir :
+        The mkdir stands for 'make directory'. With the help of mkdir command, you can create a new directory
+        wherever you want in your system. Just type "mkdir <dir name> , in place of <dir name> type the name of
+        new directory, you want to create and then press enter.
+
+        Syntax:
+
+        mkdir <dirname>
+
+
+mkdir <dirname1> <dirname2> <dirname3> : To make multiple directories
+
+
+mkdir -p : With the help of mkdir -p command you can create sub-directories of a directory.
+          It will create parent directory first, if it doesn't exist. But if it already exists, then it will not print an error message and will move further to create sub-directories.
+          command :
+                  illin4606!choudhar:~/IpBlockingissue/Schedule [175]$ mkdir -p a/aaa
+                  illin4606!choudhar:~/IpBlockingissue/Schedule [176]$ ls
+                  a  b  c  l  x  xxx  y  z
+                  illin4606!choudhar:~/IpBlockingissue/Schedule [177]$ cd a
+                  illin4606!choudhar:~/IpBlockingissue/Schedule/a [178]$ ls
+                  aaa
+                  illin4606!choudhar:~/IpBlockingissue/Schedule/a [179]$
+
+mkdir -v : mkdir -v' command will print a message with every new file created.
+          illin4606!choudhar:~/IpBlockingissue/Schedule [170]$ mkdir -v x y z
+          command :
+                  mkdir: created directory `x'
+                  mkdir: created directory `y'
+                  mkdir: created directory `z'
+mkdir -pv : Both the commands 'mkdir -pv' and 'mkdir -vp' are same. By combining -p you can create a long list files together like
+           "office/client/raj/date/day"with a printed message for each file.
+           commands :
+                      illin4606!choudhar:~/IpBlockingissue/Schedule [172]$ mkdir -pv l/m/n/p/o
+                      mkdir: created directory `l'
+                      mkdir: created directory `l/m'
+                      mkdir: created directory `l/m/n'
+                      mkdir: created directory `l/m/n/p'
+                      mkdir: created directory `l/m/n/p/o'
+mkdir -m : With the help of this command, you can access the permission on the directory you are creating. Access means to give the authority to read(r), write(w), and execute(x).
+            You can access the permission in different ways to your directory.
+            commands :
+                    "mkdir -m=rwx <file>"
+                     or
+                    "mkdir -m 777 <file>".

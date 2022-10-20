@@ -1,0 +1,20 @@
+Linux File Move : All File and director move to one directory to another
+              Commands :
+                  aaa.txt  b.txt  com  Directory  final_ip_code  log  META-INF  OTPAuth.class  Schedule  TCDIL.jar  XSSBlockingFilter.class
+                  illin4606!choudhar:~/copy/Search [385]$ pwd
+                  /attuser/ats/users/choudhar/copy/Search
+                  illin4606!choudhar:~/copy/Search [386]$ cd ..
+                  illin4606!choudhar:~/copy [387]$ cd ..
+                  illin4606!choudhar:~ [388]$ cd IpBlockingissue/
+                  illin4606!choudhar:~/IpBlockingissue [389]$ pwd
+                  /attuser/ats/users/choudhar/IpBlockingissue
+                  illin4606!choudhar:~/IpBlockingissue [390]$ cd
+                  illin4606!choudhar:~ [391]$ cd copy
+                  illin4606!choudhar:~/copy [392]$ cd Search
+                  illin4606!choudhar:~/copy/Search [393]$ mv * /attuser/ats/users/choudhar/IpBlockingissue/
+                  illin4606!choudhar:~/copy/Search [394]$ ls
+                  illin4606!choudhar:~/copy/Search [395]$ cd
+                  illin4606!choudhar:~ [396]$ cd /attuser/ats/users/choudhar/IpBlockingissue/
+                  illin4606!choudhar:~/IpBlockingissue [397]$ ls
+                  aaa.txt  b.txt  com  Directory  final_ip_code  log  META-INF  OTPAuth.class  Schedule  TCDIL.jar  XSSBlockingFilter.class
+                  illin4606!choudhar:~/IpBlockingissue [398]$

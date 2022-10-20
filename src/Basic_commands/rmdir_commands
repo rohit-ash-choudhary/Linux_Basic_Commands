@@ -1,0 +1,17 @@
+rmdir : This command is used to delete a directory. But will not be able to delete a directory including a sub-directory. It means, a directory has to be empty to be deleted.
+
+        Syntax:
+
+        rmdir <dirname>
+
+rmdir -p : This command will delete a directory including its sub-directories all at once.
+           In below picture, all sub-directories have been deleted with 'rmdir -p' command.
+           commands :
+                rmdir -p /Schedule/a/aaa
+               rmdir: failed to remove `/Schedule/a/aaa': No such file or directory
+               illin4606!choudhar:~/IpBlockingissue [196]$ cdSchedule/
+               cdSchedule/: Command not found.
+               illin4606!choudhar:~/IpBlockingissue [197]$ cd Schedule/
+               illin4606!choudhar:~/IpBlockingissue/Schedule [198]$ ls
+               a  b  c  l  x  xxx  y  z
+

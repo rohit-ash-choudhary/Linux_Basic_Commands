@@ -1,0 +1,75 @@
+Link : https://www.javatpoint.com/linux-cat
+
+1. cat <filename> : view content of file, cat a.txt
+2. cat > filename : step 1: cat > aa.txt
+                    step 2 : copy/wrote your text
+                    step 3 : CTR+D
+                    file created
+
+3. cat (older file name) > (newer file name)   : The 'cat' command can be used to copy the content of a file into another file.
+                command :
+                           illin4606!choudhar:~/test [425]$ cat a.txt > b.txt
+                           illin4606!choudhar:~/test [426]$ ls
+                           a.txt  b.txt
+                           illin4606!choudhar:~/test [427]$
+
+
+4. at <filename1> <filename2>....  > <newFilename>  : The 'cat' command can be used to concatenate the contents of multiple files in a single new file.
+                        command:
+                                illin4606!choudhar:~/test [431]$ cat a.txt
+                                ksnfdkdsnfds
+                                fafafaflaff
+                                a;f
+                                asfafapfjafjapff
+
+                                illin4606!choudhar:~/test [432]$ cat b.txt
+                                ksnfdkdsnfds
+                                fafafaflaff
+                                a;f
+                                asfafapfjafjapff
+
+                                illin4606!choudhar:~/test [433]$ cat a.txt b.txt
+                                ksnfdkdsnfds
+                                fafafaflaff
+                                a;f
+                                asfafapfjafjapff
+
+                                ksnfdkdsnfds
+                                fafafaflaff
+                                a;f
+                                asfafapfjafjapff
+
+                                illin4606!choudhar:~/test [434]$
+
+5.cat -b (file name): The 'cat -b' option removes the empty lines.
+
+6.cat - <filename1> <filename2>. . . . > <new filename> : A new line will be inserted while concatenating multiple files by using a hyphen (-).
+
+                                   syntax: cat - <filename1> <filename2>. . . . > <new filename>
+
+7. cat -e command (to display $) : The 'cat-e' option displays a '$' sign at the end of every line.
+                                    Syntax:  cat -e <fileName>
+
+
+8. Linux Cat Filters :  When cat command is used inside pipes, it does nothing except moving stdin to stout.
+                       Syntax: cat <fileName> | cat or tac |  cat or tac |. . .
+                       command :
+                               illin4606!choudhar:~/test [444]$ cat a.txt
+
+                               Monday = associated with the Moon
+                               Tuesday = from the god Tiw, associated with Mars
+                               Wednesday = from Germanic god Odin
+                               Thursday = from Germanic god of thunder Thor
+                               Friday = from Germanic goddess Frigga associated with Venus
+                               Saturday = associated with Saturn
+                               Sunday = associated with the Sun
+                               illin4606!choudhar:~/test [445]$ cat a.txt | tac |cat | tac |cat
+
+                               Monday = associated with the Moon
+                               Tuesday = from the god Tiw, associated with Mars
+                               Wednesday = from Germanic god Odin
+                               Thursday = from Germanic god of thunder Thor
+                               Friday = from Germanic goddess Frigga associated with Venus
+                               Saturday = associated with Saturn
+                               Sunday = associated with the Sun
+                       illin4606!choudhar:~/test [446]$
